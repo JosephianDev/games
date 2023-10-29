@@ -1,5 +1,3 @@
-### Nightmare Escapes
-
 - **Genre**: First-Person Horror
 
 - **Setting**: In an open world rich with spectral details, the player finds themselves trapped in a dark and intricate labyrinth of terror. The atmosphere is charged with tension as dark corners and eerie sounds intensify the sense of dread.
