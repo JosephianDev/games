@@ -1,13 +1,15 @@
 ############ MAKEFILE ############
 
-base_folder := C:\\
+base_folder := C:/mingw64
 
-g++ := $(base_folder)mingw64/bin/g++.exe
+g++ := $(base_folder)/bin/g++.exe
 
-include := -I"$(base_folder)OpenGL\include"
-lib := -L"$(base_folder)OpenGL\lib"
+include := -I"$(base_folder)/include"
+lib := -L"$(base_folder)/lib"
 
-linking := -lopengl32 -lws2_32 -lwinmm -lgdi32 -mwindows #-lopenal32 -lflac -lvorbisenc -lvorbisfile -lvorbis -logg -lfreetype
+linking := -lopengl32 -lglfw -lglew32 -mwindows
+# ALTRE LIBRERIE DA INSERIRE PIU' AVANTI
+# -lopenal32 -lws2_32 -lwinmm -lgdi32 -lflac -lvorbisenc -lvorbisfile -lvorbis -logg -lfreetype
 
 cc := $(g++) -c
 target := main
