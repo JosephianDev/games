@@ -1,22 +1,38 @@
+#include <iostream>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
 class Window {
-public:
-    Window(int width, int height, const char* title) {
-        this->width = width;
-        this->height = height;
-        this->title = title;
+private:
+    int width;
+    int height;
+    const char *title;
+    GLFWwindow *window;
 
-        if (!initializeGLFW()) {
-            // La GLFW non è stata inizializzata correttamente
-            // Puoi gestire l'errore qui
-            return;
+    bool init(){
+        // Inizializzazione di GLFW
+        if (!glfwInit())
+        {
+            // Inizializzazione di GLFW fallita
+            std::cerr << "Error: Failed to initialize GLFW" << std::endl;
+            return false;
         }
 
-        if (!initializeGLEW()) {
-            // GLEW non è stato inizializzato correttamente
-            // Puoi gestire l'errore qui
+        // Inizializzazione di GLEW
+        GLenum glewError = glewInit();
+        if (glewError != GLEW_OK)
+        {
+            // Inizializzazione di GLEW fallita
+            std::cerr << "Error: Failed to initialize GLEW" << std::endl;
+            return false;
+        }
+        return true;
+    }
+public:
+    Window(){
+        if (!init()){
+            // La GLFW o la GLEW non sono state inizializzate correttamente
+            std::cerr << "Error: Unable to initialize OpenGL Libs" << std::endl;
             return;
         }
     }
@@ -25,55 +41,58 @@ public:
         glfwTerminate();
     }
 
-    bool create(){
-        if (!createWindow())
-        {
-            // La finestra OpenGL non è stata creata correttamente
-            // Puoi gestire l'errore qui
-            return false;
-        }
-        else return true;
-    }
+    bool create(int w, int h, const char *t) {
+        setWidth(w);
+        setHeight(h);
+        setTitle(t);
 
-    bool isOpen() {
-        return !glfwWindowShouldClose(window);
-    }
-
-    void swapBuffers() {
-        glfwSwapBuffers(window);
-    }
-
-private:
-    int width;
-    int height;
-    const char* title;
-    GLFWwindow* window;
-
-    bool initializeGLFW() {
-        if (!glfwInit()) {
-            // Inizializzazione di GLFW fallita
-            return false;
-        }
-        return true;
-    }
-
-    bool createWindow() {
         window = glfwCreateWindow(width, height, title, nullptr, nullptr);
-        if (!window) {
+        if(!window) {
             // Creazione della finestra OpenGL fallita
+            std::cerr << "Error: Failed to create the OpenGL window" << std::endl;
             return false;
         }
         glfwMakeContextCurrent(window);
         return true;
     }
 
-    bool initializeGLEW() {
-        GLenum glewError = glewInit();
-        if (glewError != GLEW_OK) {
-            // Inizializzazione di GLEW fallita
-            return false;
-        }
-        return true;
+    bool isOpen() {
+        // Chiamiamo swapBuffers() per aggiornare la visualizzazione
+        glfwSwapBuffers(window);
+        // Chiamiamo glfwPollEvents() per gestire gli eventi
+        glfwPollEvents();
+
+        return !glfwWindowShouldClose(window);
+    }
+
+    // Setter per larghezza
+    void setWidth(int newWidth) {
+        width = newWidth;
+    }
+
+    // Getter per larghezza
+    int getWidth() const {
+        return width;
+    }
+
+    // Setter per altezza
+    void setHeight(int newHeight) {
+        height = newHeight;
+    }
+
+    // Getter per altezza
+    int getHeight() const {
+        return height;
+    }
+
+    // Setter per il titolo
+    void setTitle(const char *newTitle) {
+        title = newTitle;
+    }
+
+    // Getter per il titolo
+    const char *getTitle() const {
+        return title;
     }
 };
 
@@ -83,8 +102,6 @@ int main() {
 
     while (window.isOpen()) {
         // Logic and rendering here
-        window.swapBuffers();
-        glfwPollEvents();
     }
 
     return 0;

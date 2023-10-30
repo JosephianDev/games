@@ -1,5 +1,5 @@
 //game info
-#define GAME_NAME "Apocalypse"
+#define GAME_NAME "GAME"
 #define VER_ID 0001
 #define VER_NAME "0.0.1"
 #define VER_TYPE "alpha"

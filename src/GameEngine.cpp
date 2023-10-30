@@ -11,7 +11,7 @@ private:
     void update();
     void loop();
     
-    Window w(1280,720,"Ciao mondo");
+    Window w;
 public:
     GameEngine(/* args */){}
     virtual ~GameEngine(){}
@@ -27,5 +27,12 @@ public:
 };
 
 void GameEngine::init(){
-    w.create();
+    w.create(SCREEN_WIDTH,SCREEN_HEIGHT,GAME_NAME);
+}
+
+void GameEngine::loop(){
+    while (w.isOpen())
+    {
+        // Logic and rendering here
+    }
 }
