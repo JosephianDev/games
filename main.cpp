@@ -1,3 +1,7 @@
-#include <iostream>
-#include <thread>
-#include <mutex>
+#include "res/GameEngine.cpp"
+
+int main(){
+	GameEngine game;
+	game.start();
+	return 0;
+}
