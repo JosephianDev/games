@@ -31,8 +31,8 @@ public:
         glfwTerminate();
     }
 
-    bool shouldClose() {
-        return glfwWindowShouldClose(window);
+    bool isOpen() {
+        return !glfwWindowShouldClose(window);
     }
 
     void swapBuffers() {
@@ -76,7 +76,7 @@ private:
 int main() {
     Window window(800, 600, "OpenGL Window");
 
-    while (!window.shouldClose()) {
+    while (window.isOpen()) {
         // Logic and rendering here
         window.swapBuffers();
         glfwPollEvents();
