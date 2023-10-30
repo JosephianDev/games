@@ -1,3 +1,5 @@
+#include "internal/Window.cpp"
+
 #include "setting.h"
 
 class GameEngine {
