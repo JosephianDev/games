@@ -1,4 +1,4 @@
-#include "res/GameEngine.cpp"
+#include "Internal/GameEngine.cpp"
 
 int main(){
 	GameEngine game;
