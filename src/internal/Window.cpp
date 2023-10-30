@@ -14,12 +14,6 @@ public:
             return;
         }
 
-        if (!createWindow()) {
-            // La finestra OpenGL non è stata creata correttamente
-            // Puoi gestire l'errore qui
-            return;
-        }
-
         if (!initializeGLEW()) {
             // GLEW non è stato inizializzato correttamente
             // Puoi gestire l'errore qui
@@ -29,6 +23,16 @@ public:
 
     ~Window() {
         glfwTerminate();
+    }
+
+    bool create(){
+        if (!createWindow())
+        {
+            // La finestra OpenGL non è stata creata correttamente
+            // Puoi gestire l'errore qui
+            return false;
+        }
+        else return true;
     }
 
     bool isOpen() {
@@ -73,6 +77,7 @@ private:
     }
 };
 
+/*
 int main() {
     Window window(800, 600, "OpenGL Window");
 
@@ -84,3 +89,4 @@ int main() {
 
     return 0;
 }
+*/

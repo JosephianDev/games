@@ -11,6 +11,7 @@ private:
     void update();
     void loop();
     
+    Window w(1280,720,"Ciao mondo");
 public:
     GameEngine(/* args */){}
     virtual ~GameEngine(){}
@@ -24,3 +25,7 @@ public:
         loop();
     }
 };
+
+void GameEngine::init(){
+    w.create();
+}
