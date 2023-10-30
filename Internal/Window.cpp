@@ -3,7 +3,7 @@
 
 class Window {
 public:
-    OpenGLWindow(int width, int height, const char* title) {
+    Window(int width, int height, const char* title) {
         this->width = width;
         this->height = height;
         this->title = title;
@@ -27,7 +27,7 @@ public:
         }
     }
 
-    ~OpenGLWindow() {
+    ~Window() {
         glfwTerminate();
     }
 
@@ -74,7 +74,7 @@ private:
 };
 
 int main() {
-    OpenGLWindow window(800, 600, "OpenGL Window");
+    Window window(800, 600, "OpenGL Window");
 
     while (!window.shouldClose()) {
         // Logic and rendering here
