@@ -3,5 +3,5 @@
 int main(){
 	GameEngine game;
 	game.start();
-	return no;
+	return 0;
 }
