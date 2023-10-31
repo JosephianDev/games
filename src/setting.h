@@ -9,6 +9,7 @@ unsigned short int SCREEN_HEIGHT = 720;
 unsigned short int SCALE = 2;
 float FPS = 60.0f; // Gli FPS desiderati. (Il numero di aggiornamenti al secondo)
 
+bool RESIZABLE = false;
 bool FULLSCREEN = true;
 
 //folder paths

@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 #include <GL/glew.h>
 #include <GLFW/glfw3.h>
 
@@ -42,8 +43,8 @@ public:
     }
 
     bool create(int w, int h, const char *t) {
-        setWidth(w);
-        setHeight(h);
+        width = w;
+        height = h;
         setTitle(t);
 
         window = glfwCreateWindow(width, height, title, nullptr, nullptr);
@@ -65,34 +66,28 @@ public:
         return !glfwWindowShouldClose(window);
     }
 
-    // Setter per larghezza
-    void setWidth(int newWidth) {
-        width = newWidth;
-    }
-
-    // Getter per larghezza
-    int getWidth() const {
-        return width;
-    }
-
-    // Setter per altezza
-    void setHeight(int newHeight) {
-        height = newHeight;
-    }
-
-    // Getter per altezza
-    int getHeight() const {
-        return height;
-    }
-
     // Setter per il titolo
     void setTitle(const char *newTitle) {
         title = newTitle;
+        glfwSetWindowTitle(window, title);
     }
 
     // Getter per il titolo
     const char *getTitle() const {
         return title;
+    }
+
+    void setSize(int newWidth, int newHeight){
+        width = newWidth;
+        height = newHeight;
+        glfwSetWindowSize(window, newWidth, newHeight);
+    }
+
+    std::vector<int> getSize() const {
+        int windowWidth, windowHeight;
+        glfwGetWindowSize(window, &windowWidth, &windowHeight);
+
+        return {windowWidth,windowHeight};
     }
 };
 
