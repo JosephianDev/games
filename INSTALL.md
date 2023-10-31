@@ -16,7 +16,7 @@ Ensure that your system meets the following minimum requirements:
 
 To install the game, follow these steps:
 
-1. Go to the [Releases](https://link-to-releases-page) page of this repository.
+1. Go to the [Releases](https://github.com/JosephianDev/nightmare-escape/releases) page of this repository.
 
 2. Download the latest release of the game. Make sure to select the appropriate version for your operating system or platform.
 
