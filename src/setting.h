@@ -1,3 +1,6 @@
+#ifndef SETTING
+#define SETTING
+
 //game info
 #define GAME_NAME "GAME"
 #define VER_ID 0001
@@ -25,3 +28,5 @@ bool FULLSCREEN = true;
 #define GAME_PACK "./res/tileset/pack.png"
 #define GAME_PLAYER_PACK "./res/entity/player/skin/soldier/base.png"
 #define GAME_MOB_PACK "./res/entity/mob/zombie/skin/zombie_1.png"
+
+#endif

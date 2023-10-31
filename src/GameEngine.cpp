@@ -1,3 +1,5 @@
+#ifndef GAME_ENGINE
+#define GAME_ENGINE
 #include "SceneManager.cpp"
 #include "data/MainMenuScene.cpp"
 #include "internal/ThreadPool.cpp"
@@ -60,3 +62,4 @@ void GameEngine::loop(){
         });
     }
 }
+#endif

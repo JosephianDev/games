@@ -1,3 +1,5 @@
+#ifndef THREAD
+#define THREAD
 #include <functional>
 #include <thread>
 
@@ -19,3 +21,4 @@ public:
         }
     }
 };
+#endif

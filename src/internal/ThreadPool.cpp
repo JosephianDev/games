@@ -1,3 +1,5 @@
+#ifndef THREAD_POOL
+#define THREAD_POOL
 #include "Thread.cpp"
 #include <atomic>
 #include <condition_variable>
@@ -84,3 +86,4 @@ private:
         }
     }
 };
+#endif

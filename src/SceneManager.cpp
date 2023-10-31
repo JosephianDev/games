@@ -1,3 +1,5 @@
+#ifndef SCENE_MANAGER
+#define SCENE_MANAGER
 #include <vector>
 #include "Scene.cpp"
 
@@ -40,3 +42,4 @@ public:
         }
     }
 };
+#endif

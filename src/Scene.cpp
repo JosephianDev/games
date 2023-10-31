@@ -1,3 +1,6 @@
+#ifndef SCENE
+#define SCENE
+
 class Scene {
 public:
     virtual void init() = 0;
@@ -6,3 +9,5 @@ public:
     virtual void render() = 0;
     virtual void cleanup() = 0;
 };
+
+#endif

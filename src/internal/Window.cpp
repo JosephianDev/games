@@ -1,3 +1,5 @@
+#ifndef WINDOW
+#define WINDOW
 #include <iostream>
 #include <vector>
 #include <GL/glew.h>
@@ -92,3 +94,4 @@ public:
         return {windowWidth,windowHeight};
     }
 };
+#endif

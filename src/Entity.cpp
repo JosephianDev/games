@@ -1,3 +1,5 @@
+#ifndef ENTITY
+#define ENTITY
 class Entity {
 private:
     float x, y; // Posizione dell'entità
@@ -15,3 +17,4 @@ public:
         y += deltaY;
     }
 };
+#endif
