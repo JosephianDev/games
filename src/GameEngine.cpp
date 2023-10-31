@@ -1,5 +1,5 @@
 #include "internal/Window.cpp"
-#include "internal/Thread.cpp"
+#include "internal/ThreadPool.cpp"
 #include "SceneManager.cpp"
 #include "setting.h"
 

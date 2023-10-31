@@ -1,21 +1,22 @@
 #include "Thread.cpp"
+#include <atomic>
 #include <condition_variable>
 #include <functional>
 #include <mutex>
 #include <queue>
 #include <vector>
 
-class ThreadPool {
+class ThreadPool { //Thread Pool Dinamica
 private:
-    int numThreads;
     std::vector<Thread> threads;
     std::queue<std::function<void()>> tasks;
     std::mutex taskMutex;
     std::condition_variable taskCV;
-    bool stop;
+    std::atomic<bool> stop;
 
 public:
-    ThreadPool(int numThreads) : numThreads(numThreads), stop(false) {
+    ThreadPool() : stop(false) {
+        int numThreads = 1; // Inizia con un thread
         for(int i = 0; i < numThreads; ++i) {
             threads.emplace_back([this]() { workerThread(); });
         }
@@ -28,8 +29,8 @@ public:
         }
         taskCV.notify_all();
 
-        for(int i = 0; i < numThreads; ++i) {
-            threads[i].join();
+        for(Thread &thread : threads) {
+            thread.join();
         }
     }
 
@@ -41,9 +42,22 @@ public:
         taskCV.notify_one();
     }
 
+    void addThread() {
+        std::unique_lock<std::mutex> lock(taskMutex);
+        threads.emplace_back([this]() { workerThread(); });
+    }
+
+    void removeThread() {
+        if(threads.size() > 1) {
+            std::unique_lock<std::mutex> lock(taskMutex);
+            tasks.push(nullptr); // Aggiungi un segnaposto per la rimozione del thread
+            taskCV.notify_one();
+        }
+    }
+
 private:
     void workerThread() {
-        while(true) {
+        while(!stop) {
             std::function<void()> task;
 
             {
@@ -63,6 +77,9 @@ private:
 
             if(task) {
                 task();
+            } else {
+                // Se la task è nullptr, il thread deve essere rimosso
+                break;
             }
         }
     }
