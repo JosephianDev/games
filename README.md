@@ -1,4 +1,4 @@
-# Project Title
+# Nightmare Escapes
 
 ## Description
 "Nightmare Escapes" is a first-person horror game set in an open world rich with spectral details. Players will find themselves trapped in a dark and intricate labyrinth of terror, surrounded by an atmosphere charged with tension. Dark corners and eerie sounds intensify the sense of dread.
