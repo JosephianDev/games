@@ -1,4 +1,5 @@
 #include "internal/Window.cpp"
+#include "internal/Thread.cpp"
 
 #include "setting.h"
 
