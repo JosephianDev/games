@@ -7,24 +7,9 @@ private:
     //function principali per gioco
 
     /**
-     * \brief Gestisce l'input del gioco.
-     */
-    void input();
-
-    /**
-     * \brief Disegna gli elementi del gioco.
-     */
-    void draw();
-
-    /**
      * \brief Inizializza il gioco e la finestra.
      */
     void init();
-
-    /**
-     * \brief Aggiorna lo stato del gioco.
-     */
-    void update();
 
     /**
      * \brief Ciclo principale del gioco.
