@@ -43,23 +43,29 @@ void GameEngine::init(){
     window.create(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_NAME);
 
     //inserisco come prima scena il menu principale
-    sceneManager.pushScene(new MainMenu());
+    sceneManager.pushScene(new MainMenuScene());
 }
 
 void GameEngine::loop(){
     while(window.isOpen()) {
         // Gestione dell'input
-        threadPool.addTask([]() {
-            // Cattura input utente (tastiere, mouse, gamepad, ecc.).
-            // Aggiorna lo stato del gioco in base all'input.
+        threadPool.addTask([this]() {
+            sceneManager.getCurrentScene()->input();
         });
 
         // Aggiornamento dello stato del gioco
-        threadPool.addTask([]() {
-            // Passa il controllo alla scena corrente.
-            // La scena corrente gestisce la logica del gioco, le collisioni, la renderizzazione, ecc.
-            sceneManager.getCurrentScene()
+        threadPool.addTask([this]() {
+            sceneManager.getCurrentScene()->update();
         });
+
+        // Renderizzazione
+        threadPool.addTask([this]() {
+            sceneManager.getCurrentScene()->render();
+        });
+
+        // Altri compiti
+
+        //threadPool.waitAll(); // Attendi il completamento di tutti i compiti
     }
 }
 #endif
