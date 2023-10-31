@@ -1,5 +1,5 @@
 #include "internal/Window.cpp"
-#include "internal/Thread.cpp"
+//#include "internal/Thread.cpp"
 #include "setting.h"
 
 class GameEngine {
@@ -52,43 +52,8 @@ void GameEngine::init(){
 }
 
 void GameEngine::loop(){
-    float rotationAngle = 0.0f;
-
     while(window.isOpen()) {
-        glEnable(GL_DEPTH_TEST);
 
-        glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-        glMatrixMode(GL_MODELVIEW);
-        glLoadIdentity();
-
-        // Calcola la trasformazione di rotazione
-        rotationAngle += 0.5f;
-        if(rotationAngle > 360.0f) {
-            rotationAngle -= 360.0f;
-        }
-        glRotatef(rotationAngle, 0.0f, 1.0f, 0.0f);
-
-        // Disegna la piramide
-        glBegin(GL_TRIANGLES);
-
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, 1.0f, 0.0f);
-        glColor3f(0.0f, 1.0f, 0.0f);
-        glVertex3f(-1.0f, -1.0f, 1.0f);
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex3f(1.0f, -1.0f, 1.0f);
-
-        glColor3f(1.0f, 0.0f, 0.0f);
-        glVertex3f(0.0f, 1.0f, 0.0f);
-        glColor3f(0.0f, 0.0f, 1.0f);
-        glVertex3f(1.0f, -1.0f, 1.0f);
-        glColor3f(0.0f, 0.0f, 0.0f);
-        glVertex3f(1.0f, -1.0f, -1.0f);
-
-        // Ripeti per le altre facce...
-
-        glEnd();
+        
     }
 }

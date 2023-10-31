@@ -45,7 +45,7 @@ public:
     bool create(int w, int h, const char *t) {
         width = w;
         height = h;
-        setTitle(t);
+        title = t;
 
         window = glfwCreateWindow(width, height, title, nullptr, nullptr);
         if(!window) {
@@ -53,7 +53,9 @@ public:
             std::cerr << "Error: Failed to create the OpenGL window" << std::endl;
             return false;
         }
-        glfwMakeContextCurrent(window);
+
+        glfwMakeContextCurrent(window); // Imposta il contesto OpenGL
+
         return true;
     }
 
