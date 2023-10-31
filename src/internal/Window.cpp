@@ -92,15 +92,3 @@ public:
         return {windowWidth,windowHeight};
     }
 };
-
-/*
-int main() {
-    Window window(800, 600, "OpenGL Window");
-
-    while (window.isOpen()) {
-        // Logic and rendering here
-    }
-
-    return 0;
-}
-*/
