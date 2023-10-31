@@ -9,7 +9,7 @@ lib := -L"$(base_folder)/lib"
 
 linking := -lopengl32 -lglfw -lglew32 -mwindows
 # ALTRE LIBRERIE DA INSERIRE PIU' AVANTI
-# -lopenal32 -lws2_32 -lwinmm -lgdi32 -lflac -lvorbisenc -lvorbisfile -lvorbis -logg -lfreetype
+# -lopenal32 -lws2_32 -lwinmm -lgdi32 -lflac -logg -lfreetype
 
 cc := $(g++) -c
 target := main
