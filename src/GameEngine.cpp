@@ -62,10 +62,6 @@ void GameEngine::loop(){
         threadPool.addTask([this]() {
             sceneManager.getCurrentScene()->render();
         });
-
-        // Altri compiti
-
-        //threadPool.waitAll(); // Attendi il completamento di tutti i compiti
     }
 }
 #endif
