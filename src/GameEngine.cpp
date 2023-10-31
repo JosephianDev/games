@@ -1,5 +1,6 @@
 #include "internal/Window.cpp"
-//#include "internal/Thread.cpp"
+#include "internal/Thread.cpp"
+#include "SceneManager.cpp"
 #include "setting.h"
 
 class GameEngine {
@@ -17,6 +18,7 @@ private:
     void loop();
     
     Window window;
+    SceneManager sceneManager;
 public:
     GameEngine(/* args */){}
     virtual ~GameEngine(){}
