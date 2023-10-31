@@ -1,3 +1,7 @@
+#include <iostream>
+#include <vector>
+#include "Scene.cpp"
+
 class SceneManager {
 private:
     std::vector<Scene *> sceneStack;
