@@ -33,4 +33,10 @@ public:
             sceneStack.back()->render();
         }
     }
+
+    Scene* getCurrentScene(){
+        if(!sceneStack.empty()){
+            return sceneStack.back();
+        }
+    }
 };
