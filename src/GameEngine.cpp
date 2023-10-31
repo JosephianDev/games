@@ -1,6 +1,5 @@
 #include "internal/Window.cpp"
 #include "internal/Thread.cpp"
-
 #include "setting.h"
 
 class GameEngine {
@@ -12,14 +11,15 @@ private:
     void update();
     void loop();
     
-    Window w;
+    Window window;
 public:
     GameEngine(/* args */){}
     virtual ~GameEngine(){}
 
     /**
-     * \brief starting function
+     * \brief Funzione di avvio del gioco.
      *
+     * Questa funzione inizializza il gioco e avvia il ciclo principale.
      */
     void start() {
         init();
@@ -28,12 +28,11 @@ public:
 };
 
 void GameEngine::init(){
-    w.create(SCREEN_WIDTH,SCREEN_HEIGHT,GAME_NAME);
+    window.create(SCREEN_WIDTH, SCREEN_HEIGHT, GAME_NAME);
 }
 
 void GameEngine::loop(){
-    while (w.isOpen())
-    {
+    while(window.isOpen()) {
         // Logic and rendering here
     }
 }
