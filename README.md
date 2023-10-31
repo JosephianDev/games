@@ -20,6 +20,5 @@ Our game is an online 3D MMORPG with a unique feature: every day, players are im
 ## Installation
 For installation and to start playing the game, please follow the instructions in the `INSTALL.md` file.
 
-## Contributing
-We welcome contributions from the community! If you'd like to participate in the development of this game, please review our contribution guidelines in the `CONTRIBUTING.md` file.
-
+## Contact
+For questions or information, please contact me at [My Mail](mailto:jokobusiness365@gmail.com).
